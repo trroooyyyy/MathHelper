@@ -10,7 +10,7 @@ public class Main {
         boolean condition = true;
         Repository repository = new Repository();
         while (condition){
-            System.out.println("1 - Enter the qustion.\n" + "2 - Get all roots of the question.\n" + "3 - Check the root.");
+            System.out.println("1 - Enter the question.\n" + "2 - Get all roots of the question.\n" + "3 - Check the root.");
             int s = sc.nextInt();
             switch (s) {
                 case 1 -> {
@@ -38,7 +38,7 @@ public class Main {
                     if(question != null){
                         System.out.println("Enter the root for the question:" + question);
                         double x = sc.nextDouble();
-                        Service.Solution(question,  x);
+                        Service.solution(question,  x);
                     }
                     else{
                         System.out.println("Enter the question. ");

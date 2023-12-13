@@ -23,26 +23,25 @@ public class Service {
 
 
     public static boolean isBracketsRight(String equation) {
-        int counter = 0;
-
-        for (char bracket : equation.toCharArray()) {
-            if (bracket == '(') {
-                counter++;
-            } else if (bracket == ')') {
-                counter--;
+        int i = 0;
+        for (char c : equation.toCharArray()) {
+            if (c == '(') {
+                i++;
             }
-            if (counter < 0) {
-                return false;
+            else if (c == ')') {
+                if (i == 0) {
+                    return false;
+                }
+                i--;
+                if (i < 0) {
+                    return false;
+                }
             }
         }
-
-        if(counter==0){
-            System.out.println("The brackets are placed incorrect.");
+        if(i != 0){
+            System.out.println("The brackets are placed incorrect");
         }
-        else{
-            return true;
-        }
-        return false;
+        return i == 0;
     }
 
     private static boolean isOperator(char c) {
@@ -76,7 +75,7 @@ public class Service {
         }
         return true;
     }
-    public static boolean Solution(String s, double x) throws SQLException {
+    public static boolean solution(String s, double x) throws SQLException {
         List<String> strings = Arrays.asList(s.split("="));
         String equation = strings.stream().filter(el -> el.contains("x")).findFirst().get();
         String result = strings.stream().filter(el -> !el.contains("x")).findFirst().get();
