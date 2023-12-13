@@ -23,6 +23,7 @@ public class Main {
                             question = question.replaceAll("\\s", "");
                             System.out.println("Question is right. Saving in DB.");
                             repository.save(question);
+                            break;
                         }
                         else{
                             System.out.println("Equation is invalid. Try again");
